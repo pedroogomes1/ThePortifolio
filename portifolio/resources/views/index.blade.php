@@ -1,5 +1,5 @@
 @extends('layouts.layout')
-@section('title', 'Igor')
+@section('title', 'Dev - Pedro Gomes')
 @section('content')
 
 <x-system.navbar/>
