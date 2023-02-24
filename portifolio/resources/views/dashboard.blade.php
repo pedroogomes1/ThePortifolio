@@ -4,7 +4,7 @@
 
 <!-- navbar bootstrap 4.6 -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Navbar</a>
+  <a class="navbar-brand" href="#">Logo</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -19,7 +19,7 @@
           Sobre mim
         </a>
         <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="#">ADD</a></li>
+          <li><a class="dropdown-item" href="#" data-toggle="modal" data-target="#modalAbout">ADD</a></li>
           <li><a class="dropdown-item" href="#">LIST</a></li>
         </ul>
       </li>
@@ -28,7 +28,7 @@
           Serviços
         </a>
         <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="#">ADD</a></li>
+          <li><a class="dropdown-item" href="#" data-toggle="modal" data-target="#modalServices">ADD</a></li>
           <li><a class="dropdown-item" href="#">LIST</a></li>
         </ul>
       </li>
@@ -37,7 +37,7 @@
           Portifólios
         </a>
         <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="#">ADD</a></li>
+          <li><a class="dropdown-item" href="#" data-toggle="modal" data-target="#modalPortfolio">ADD</a></li>
           <li><a class="dropdown-item" href="#">LIST</a></li>
         </ul>
       </li>
@@ -46,7 +46,7 @@
           Testemunhas
         </a>
         <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="#">ADD</a></li>
+          <li><a class="dropdown-item" href="#" data-toggle="modal" data-target="#modalTestimonials">ADD</a></li>
           <li><a class="dropdown-item" href="#">LIST</a></li>
         </ul>
       </li>
@@ -55,7 +55,7 @@
           Assinaturas
         </a>
         <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="#">ADD</a></li>
+          <li><a class="dropdown-item" href="#" data-toggle="modal" data-target="#modalSignature">ADD</a></li>
           <li><a class="dropdown-item" href="#">LIST</a></li>
         </ul>
       </li>
@@ -63,8 +63,26 @@
   </div>
 </nav>
 
-<!-- fim do navbar bootstrap 4.6 -->
+<!-- End Navbar bootstrap 4.6 -->
 
+@php
+    $x = "list";
+@endphp
 
+@if($x == "teste")
+    <p>rodou</p>
+@elseif($x == "list")
+    <x-dashboard.liste/>
+@else
+@endif
+
+<!-- Modals  -->
+
+<x-dashboard.about-modal/>
+<x-dashboard.portfolio-modal/>
+<x-dashboard.services-modal/>
+<x-dashboard.signature-modal/>
+<x-dashboard.testimonials-modal/>
+<!-- End Modals -->
 
 @endsection
