@@ -17,6 +17,17 @@ $x = "list";
 @else
 @endif
 
+@if(isset($msg))
+    <div class="alert alert-success" role="alert">
+        {{$msg}}
+    </div>
+
+@else
+
+@endif
+
+
+
 <!-- Modals  -->
 <x-dashboard.about-modal />
 <x-dashboard.portfolio-modal />
