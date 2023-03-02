@@ -7,7 +7,7 @@
   <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
       <li class="nav-item active">
-        <a class="nav-link" href="/teste">Página Inicial <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="/">Página Inicial <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
@@ -15,7 +15,7 @@
         </a>
         <ul class="dropdown-menu">
           <li><a class="dropdown-item" href="#" data-toggle="modal" data-target="#modalAbout">ADD</a></li>
-          <li><a class="dropdown-item" href="#">LIST</a></li>
+          <li><a class="dropdown-item" href="/list/about">LIST</a></li>
         </ul>
       </li>
       <li class="nav-item dropdown">
@@ -24,7 +24,7 @@
         </a>
         <ul class="dropdown-menu">
           <li><a class="dropdown-item" href="#" data-toggle="modal" data-target="#modalServices">ADD</a></li>
-          <li><a class="dropdown-item" href="#">LIST</a></li>
+          <li><a class="dropdown-item" href="/list/services">LIST</a></li>
         </ul>
       </li>
       <li class="nav-item dropdown">
@@ -33,7 +33,7 @@
         </a>
         <ul class="dropdown-menu">
           <li><a class="dropdown-item" href="#" data-toggle="modal" data-target="#modalPortfolio">ADD</a></li>
-          <li><a class="dropdown-item" href="#">LIST</a></li>
+          <li><a class="dropdown-item" href="/list/portfolio">LIST</a></li>
         </ul>
       </li>
       <li class="nav-item dropdown">
@@ -42,7 +42,7 @@
         </a>
         <ul class="dropdown-menu">
           <li><a class="dropdown-item" href="#" data-toggle="modal" data-target="#modalTestimonials">ADD</a></li>
-          <li><a class="dropdown-item" href="#">LIST</a></li>
+          <li><a class="dropdown-item" href="/list/testimonials">LIST</a></li>
         </ul>
       </li>
       <li class="nav-item dropdown">
@@ -51,7 +51,7 @@
         </a>
         <ul class="dropdown-menu">
           <li><a class="dropdown-item" href="#" data-toggle="modal" data-target="#modalSignature">ADD</a></li>
-          <li><a class="dropdown-item" href="#">LIST</a></li>
+          <li><a class="dropdown-item" href="/list/signature">LIST</a></li>
         </ul>
       </li>
     </ul>

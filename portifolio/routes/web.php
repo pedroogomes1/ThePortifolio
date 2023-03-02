@@ -16,16 +16,12 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/teste', function () {
+Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return view('dashboard',['x'=>'']);
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
@@ -35,9 +31,35 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::post('/add/about',[AboutController::class, 'create'])->middleware(['auth', 'verified']);
-Route::post('/add/services',[ServiceController::class, 'create'])->middleware(['auth', 'verified']);
-Route::post('/add/portfolio',[PortfolioController::class, 'create'])->middleware(['auth', 'verified']);
+Route::get('/list/about',[AboutController::class, 'getAboutAll'])->middleware(['auth', 'verified']);
+Route::post('/editar/about',[AboutController::class, 'getAbout'])->middleware(['auth', 'verified']);
+Route::post('/update/about',[AboutController::class, 'updateAbout'])->middleware(['auth', 'verified']);
+Route::post('/deletar/about',[AboutController::class, 'deleteAbout'])->middleware(['auth', 'verified']);
+Route::post('/search/about',[AboutController::class, 'searchAbout'])->middleware(['auth', 'verified']);
 
+
+
+Route::post('/add/service',[ServiceController::class, 'create'])->middleware(['auth', 'verified']);
+Route::get('/list/services',[ServiceController::class, 'getServicesAll'])->middleware(['auth', 'verified']);
+Route::post('/editar/service',[ServiceController::class, 'getService'])->middleware(['auth', 'verified']);
+Route::post('/update/service',[ServiceController::class, 'updateService'])->middleware(['auth', 'verified']);
+Route::post('/deletar/service',[ServiceController::class, 'deleteService'])->middleware(['auth', 'verified']);
+Route::post('/search/service',[ServiceController::class, 'searchService'])->middleware(['auth', 'verified']);
+
+
+
+Route::post('/add/portfolio',[PortfolioController::class, 'create'])->middleware(['auth', 'verified']);
+Route::get('/list/portfolio',[PortfolioController::class, 'getPortfolioAll'])->middleware(['auth', 'verified']);
+Route::post('/editar/portfolio',[PortfolioController::class, 'getPortfolio'])->middleware(['auth', 'verified']);
+Route::post('/update/portfolio',[PortfolioController::class, 'updatePortfolio'])->middleware(['auth', 'verified']);
+Route::post('/deletar/portfolio',[PortfolioController::class, 'deletePortfolio'])->middleware(['auth', 'verified']);
+Route::post('/search/portfolio',[PortfolioController::class, 'searchPortfolio'])->middleware(['auth', 'verified']);
+
+
+
+
+
+//Route::post('/add/portfolio',[PortfolioController::class, 'create'])->middleware(['auth', 'verified']);
 
 
 

@@ -18,36 +18,38 @@ class AboutController extends Controller
             $extension = $request->file('imagem')->getClientOriginalExtension();
             $nameStore = $fileName."_".time() . "." . $extension;
             $patch = $request->file('imagem')->storeAs('public/senai', $nameStore);
+            
         }else{
             $nameStore = "noImagem.png";
         }
 
         $db = new About;
         $db->description = $request->description;
-        $db->patch = $nameStore;
+        $db->patch = 'senai/'. $nameStore;
         $db->save();
 
-        return view('dashboard',['msg'=>"Successfully registered item !"]);
+        return view('dashboard',['x'=>"",'msg'=>"Successfully registered item !"]);
     }
 
     public function getAboutAll()
     {
-        return About::all();
+        return view('dashboard',['x'=>"list",'type'=>"about",'list'=> About::all()]);
     }
 
     public function getAbout(Request $request)
     {
-        return About::find($request->id);
+        return view('editAbout', ['list'=> About::find($request->id)]);
     }
 
     public function updateAbout(Request $request)
     {
         if($request->hasFile('imagem')){
-            $fileNameWithExt = $request->file('iamgem')->getClientOriginalName();
+            $fileNameWithExt = $request->file('imagem')->getClientOriginalName();
             $fileName = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
             $extension = $request->file('imagem')->getClientOriginalExtension();
             $nameStore = $fileName."_".time() . "." . $extension;
             $patch = $request->file('imagem')->storeAs('public/senai', $nameStore);
+            $nameStore = 'senai/'.$nameStore;
         }else{
             $nameStore = $request->patch;
         }
@@ -56,18 +58,21 @@ class AboutController extends Controller
         $db->description = $request->description;
         $db->patch = $nameStore; 
         $db->save();
+        return $this->getAboutAll();
     }
 
     public function deleteAbout(Request $request)
     {
         $db = About::find($request->id);
         $db->delete();
+        return $this->getAboutAll();
     }
 
-    public function search(Request $request)
+    public function searchAbout(Request $request)
     {
-        About::where('description', 'LIKE', '%' . $request->search . '%')
+        $db = About::where('description', 'LIKE', '%' . $request->search . '%')
                ->get();
+        return view('dashboard',['x'=>"list",'type'=>'about','list'=>$db]);
     }
 
 }

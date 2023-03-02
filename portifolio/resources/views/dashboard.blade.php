@@ -2,26 +2,18 @@
 @section('title', 'Dashboard')
 @section('content')
 
-<!-- navbar bootstrap 4.6 -->
 <x-dashboard.navbar/>
-<!-- End Navbar bootstrap 4.6 -->
 
-@php
-$x = "list";
-@endphp
-
-@if($x == "teste")
-<p>rodou</p>
-@elseif($x == "list")
-<x-dashboard.liste />
+@if ($x == "list")
+    <x-dashboard.liste :result="$list" :service="$type"/>
 @else
 @endif
+
 
 @if(isset($msg))
     <div class="alert alert-success" role="alert">
         {{$msg}}
     </div>
-
 @else
 
 @endif
