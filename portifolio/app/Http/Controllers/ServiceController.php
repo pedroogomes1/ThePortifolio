@@ -27,7 +27,7 @@ class ServiceController extends Controller
         $db = new Service;
         $db->title = $request->title;
         $db->description = $request->description;
-        $db->icon = 'senai/'. $nameStore;
+        $db->icon = 'icon/'. $nameStore;
         $db->save();
 
         return view('dashboard',['x'=>"",'msg'=>"Successfully registered item !"]);
@@ -51,7 +51,7 @@ class ServiceController extends Controller
             $extension = $request->file('imagem')->getClientOriginalExtension();
             $nameStore = $fileName."_".time() . "." . $extension;
             $patch = $request->file('imagem')->storeAs('public/icon', $nameStore);
-            $nameStore = 'senai/'.$nameStore;
+            $nameStore = 'icon/'.$nameStore;
         }else{
             $nameStore = $request->patch;
         }

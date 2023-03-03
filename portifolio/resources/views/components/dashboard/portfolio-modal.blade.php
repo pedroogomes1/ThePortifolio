@@ -16,8 +16,16 @@
             <input type="text" class="form-control" placeholder="Titulo" aria-label="Username" aria-describedby="basic-addon1" name="title">
             <label for="exampleFormControlTextarea1">Descrição</label>
             <textarea class="form-control" id="exampleFormControlTextarea1" name="description" rows="3"></textarea>
-            <label for="exampleFormControlTextarea1">Tipo</label>
-            <input type="text" class="form-control" placeholder="Tipo de trabalho" aria-label="Recipient's username" aria-describedby="basic-addon2" name="type">
+            <div class="form-group">
+              <label for="exampleFormControlSelect1">Example select</label>
+              <select class="form-control" name="type" id="exampleFormControlSelect1">
+                <option value="sass">SASS</option>
+                <option value="pass">PASS</option>
+                <option value="integral">VENDA</option>
+                <option value="api">API</option>
+                <option value="support">SUPORT</option>
+              </select>
+            </div>
             <label for="exampleFormControlTextarea1">url</label>
             <input type="text" class="form-control" placeholder="https://example.com/" aria-label="Recipient's username" aria-describedby="basic-addon2" name="url">
           </div>

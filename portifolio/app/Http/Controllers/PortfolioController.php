@@ -28,7 +28,7 @@ class PortfolioController extends Controller
         $db->description = $request->description;
         $db->type = $request->type;
         $db->url = $request->url;
-        $db->patch = 'senai/'. $nameStore;
+        $db->patch = 'portfolio/'. $nameStore;
         $db->save();
 
         return view('dashboard',['x'=>"",'msg'=>"Successfully registered item !"]);
@@ -52,7 +52,7 @@ class PortfolioController extends Controller
             $extension = $request->file('imagem')->getClientOriginalExtension();
             $nameStore = $fileName."_".time() . "." . $extension;
             $patch = $request->file('imagem')->storeAs('public/portfolio', $nameStore);
-            $nameStore = 'senai/'.$nameStore;
+            $nameStore = 'portfolio/'.$nameStore;
         }else{
             $nameStore = $request->patch;
         }
@@ -73,7 +73,7 @@ class PortfolioController extends Controller
 
     public function searchPortfolio(Request $request)
     {
-        $db = Portfolio::where('description', 'LIKE', '%' . $request->search . '%')
+        $db = Portfolio::where('title', 'LIKE', '%' . $request->search . '%')
                ->get();
         return view('dashboard',['x'=>"list",'type'=>'portfolio','list'=>$db]);
     }
